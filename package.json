@@ -1,0 +1,26 @@
+
+{
+  "description": "Easy oriented objects encrypted databse",
+  "keywords": [
+    "json",
+    "database",
+    "easy",
+    "db",
+    "oriented objects",
+    "encrypted",
+    "easydb"
+  ],
+  "main": "index.js",
+  "name": "easydb",
+  "version": "1.0.15",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelnovaes/easydb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samuelnovaes/easydb/issues"
+  },
+  "homepage": "https://github.com/samuelnovaes/easydb#readme",
+  "license": "ISC",
+  "author": "Samuel Novaes Sena"
+}
