@@ -16,7 +16,7 @@ $ npm install easydb
 var easydb = require("easydb");
 
 var db = new easydb({
-    file: "people.json",
+    file: "people.db",
     password: "test123",
     default: {location: "Brazil", people: []} //Initial value
 });
