@@ -13,9 +13,9 @@ $ npm install easydb
 # Example usage
 
 ```javascript
-var easydb = require("easydb");
+const easydb = require("easydb");
 
-var db = new easydb({
+const db = new easydb({
     file: "people.db",
     password: "test123",
     default: {location: "Brazil", people: []} //Initial value
