@@ -1,18 +1,25 @@
-
 {
-  "description": "Easy oriented objects encrypted databse",
+  "description": "Easy encrypted JSON databse",
   "keywords": [
     "json",
     "database",
+    "banco de dados",
     "easy",
     "db",
-    "oriented objects",
+    "bd",
+    "sgbd",
     "encrypted",
+    "criptografado",
+    "criptografia",
+    "dados",
+    "persistente",
+    "armazenamento",
+    "seguro",
     "easydb"
   ],
   "main": "index.js",
   "name": "easydb",
-  "version": "1.0.15",
+  "version": "2.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samuelnovaes/easydb.git"
