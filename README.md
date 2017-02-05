@@ -18,7 +18,7 @@ const db = new easydb({
     file: "file.db",
     password: "myPassword",
     default: {location:"Brazil", people:[], num:0} //Initial value
-);
+});
 
 //Write or edit data
 db.value.location = "EUA";
