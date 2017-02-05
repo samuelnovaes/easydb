@@ -1,42 +1,39 @@
-let fs = require("fs");
-let crypto = require("crypto");
+var fs = require("fs");
+var crypto = require("crypto");
 
-let encrypt = (text, password)=>{
+function encrypt(text, password){
 	if(password){
-		let cipher = crypto.createCipher("aes-256-ctr", password);
-		let crypted = cipher.update(text, "utf8", "base64");
+		var cipher = crypto.createCipher("aes-256-ctr", password);
+		var crypted = cipher.update(text, "utf8", "base64");
 		crypted += cipher.final("base64");
 		return crypted;
 	}
 	return text;
 }
 
-let decrypt = (text, password)=>{
+function decrypt(text, password){
 	if(password){
-		let decipher = crypto.createDecipher("aes-256-ctr", password);
-		let decrypted = decipher.update(text, "base64", "utf8");
+		var decipher = crypto.createDecipher("aes-256-ctr", password);
+		var decrypted = decipher.update(text, "base64", "utf8");
 		decrypted += decipher.final("utf8");
 		return decrypted;
 	}
 	return text;
 }
 
-module.exports = class {
-	constructor(config){
-		this.config = config;
-		try{
-			this.value = JSON.parse(decrypt(fs.readFileSync(config.file, "utf-8"), config.password));
+module.exports = function(config){
+	try{
+		this.value = JSON.parse(decrypt(fs.readFileSync(config.file, "utf-8"), config.password));
+	}
+	catch(err){
+		if(err.code === "ENOENT"){
+			this.value = config.default;
 		}
-		catch(err){
-			if(err.code === "ENOENT"){
-				this.value = config.default;
-			}
-			else{
-				throw err;
-			}
+		else{
+			throw err;
 		}
 	}
-	save(){
-		fs.writeFileSync(this.config.file, encrypt(JSON.stringify(this.value), this.config.password), "utf-8");
+	this.save = function(){
+		fs.writeFileSync(config.file, encrypt(JSON.stringify(this.value), config.password), "utf-8");
 	}
 }
