@@ -19,7 +19,7 @@
   ],
   "main": "index.js",
   "name": "easydb",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samuelnovaes/easydb.git"
