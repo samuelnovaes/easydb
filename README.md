@@ -14,24 +14,17 @@ $ npm install easydb
 
 ```javascript
 const easydb = require("easydb");
+const db = new easydb("file.db", "myPassword");
 
-const db = new easydb({
-    file: "people.db",
-    password: "test123",
-    default: {location: "Brazil", people: []} //Initial value
-});
+//Write or edit data
+db.value = {location:"Brazil", people:[], num:0}
+db.value.location = "EUA";
+db.value.people.push({name: "Foo", age: 20, gender: "Male"});
+db.value.num++;
 
-//Writing or editing values
-db.write($=>{
-    $.location = "EUA";
-    $.people.push({name: "Foo", age: 20, gender: "Male"});
-    return $; //Don't forguet this
-});
-
-//Saving values to file
+//Store data
 db.save();
 
-//Getting values
 console.log(db.value);
-//{location: "EUA", people: [{name: "Foo", age: 20, gender: "Male"}]}
+//{location: "EUA", people: [{name: "Foo", age: 20, gender: "Male"}], num: 1}
 ```
