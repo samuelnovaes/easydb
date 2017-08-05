@@ -1,9 +1,10 @@
 {
-  "description": "Easy encrypted JSON databse",
+  "description": "Easy asynchronous encrypted JSON databse",
   "keywords": [
     "json",
     "database",
     "banco de dados",
+    "dados",
     "easy",
     "db",
     "bd",
@@ -11,15 +12,21 @@
     "encrypted",
     "criptografado",
     "criptografia",
+    "cypher",
     "dados",
     "persistente",
+    "persistence",
     "armazenamento",
+    "store",
     "seguro",
-    "easydb"
+    "safe",
+    "easydb",
+    "asynchronous",
+    "async"
   ],
   "main": "index.js",
   "name": "easydb",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samuelnovaes/easydb.git"
