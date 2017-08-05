@@ -27,7 +27,7 @@ module.exports = (config) => {
 		db.save = () => {
 			return new Promise((resolve, reject) => {
 				fs.writeFile(config.file, encrypt(JSON.stringify(db.value), config.password), 'utf-8', (err) => {
-					if (err) reject(err);
+					if (err) reject(err.message);
 					resolve();
 				});
 			})
@@ -38,10 +38,22 @@ module.exports = (config) => {
 					db.value = config.default;
 				}
 				else {
-					reject(err);
+					reject(err.message);
 				}
 			}
-			else db.value = JSON.parse(decrypt(text, config.password));
+			else {
+				try {
+					db.value = JSON.parse(decrypt(text, config.password));
+				}
+				catch (e) {
+					if (e.name == 'SyntaxError') {
+						reject('Wrong password');
+					}
+					else {
+						reject(err.message);
+					}
+				}
+			}
 			resolve(db);
 		})
 	});
