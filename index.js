@@ -26,13 +26,13 @@ module.exports = (config) => {
 		let db = {};
 		db.save = () => {
 			return new Promise((resolve, reject) => {
-				fs.writeFile(config.file, encrypt(JSON.stringify(db.value), config.password), (err) => {
+				fs.writeFile(config.file, encrypt(JSON.stringify(db.value), config.password), 'utf-8', (err) => {
 					if (err) reject(err);
 					resolve();
 				});
 			})
 		}
-		fs.readFile(config.file, (err, text) => {
+		fs.readFile(config.file, 'utf-8', (err, text) => {
 			if (err) {
 				if (err.code === 'ENOENT') {
 					db.value = config.default;
