@@ -1,20 +1,14 @@
 const fs = require('fs')
-
-module.exports = (file) => {
+module.exports = (file, cb) => {
 	return new Promise((resolve, reject) => {
 		let db = {}
 		fs.readFile(file, 'utf-8', (err, text) => {
-			if (err) {
-				if (err.code === 'ENOENT') {
-					db.value = null
-				}
-				else {
-					reject(err.message)
-				}
+			if (err && err.code != 'ENOENT') {
+				reject(err.message)
 			}
-			else {
+			else if (!err) {
 				try {
-					db.value = JSON.parse(text)
+					db = JSON.parse(text)
 				}
 				catch (e) {
 					if (e.name == 'SyntaxError') {
@@ -25,15 +19,11 @@ module.exports = (file) => {
 					}
 				}
 			}
-			resolve(db)
-		})
-		db.save = () => {
-			return new Promise((resolve, reject) => {
-				fs.writeFile(file, JSON.stringify(db.value), 'utf-8', (err) => {
-					if (err) reject(err.message)
-					resolve()
-				})
+			cb(db)
+			fs.writeFile(file, JSON.stringify(db), 'utf-8', (err) => {
+				if (err) reject(err.message)
+				resolve()
 			})
-		}
+		})
 	})
 }

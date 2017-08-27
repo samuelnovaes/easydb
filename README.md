@@ -15,25 +15,23 @@ $ npm install easydb
 ```javascript
 const easydb = require("easydb");
 
-easydb('file.json').then((db)=>{
+easydb('file.json', (db)=>{
 
-    //Write default data
-    if(!db.value){
-        db.value = {location:"Brazil", people:[], num:0}
-    }
+    //Write values if not exists
+    if(!db.location) db.location = "Brazil";
+    if(!db.people) db.people = [];
+    if(!db.num) db.num = 0;
 
-    //Read data
-    console.log(db.value.location);
+    //Read value
+    console.log(db.location);
 
-    //Write or edit data
-    db.value.location = "EUA";
-    db.value.people.push({name: "Foo", age: 20, gender: "Male"});
-    db.value.num++;
+    //Write or edit value
+    db.location = "EUA";
+    db.people.push({name: "Foo", age: 20, gender: "Male"});
+    db.num++;
 
-    //Store data
-    db.save().then(()=>{
-        console.log("Data Stored!");
-    });
-
+})
+.then(()=>{
+    console.log("Data Stored!");
 })
 ```
