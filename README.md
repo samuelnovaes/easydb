@@ -1,6 +1,6 @@
 # easydb
 
-Easy asynchronous encrypted JSON databse
+Easy asynchronous JSON databse
 
 [![NPM](https://nodei.co/npm/easydb.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/easydb/)
 
@@ -15,11 +15,12 @@ $ npm install easydb
 ```javascript
 const easydb = require("easydb");
 
-easydb({
-    file: "file.db",
-    password: "myPassword",
-    default: {location:"Brazil", people:[], num:0} //Initial value
-}).then((db)=>{
+easydb('file.json').then((db)=>{
+
+    //Write default data
+    if(!db.value){
+        db.value = {location:"Brazil", people:[], num:0}
+    }
 
     //Read data
     console.log(db.value.location);
@@ -32,11 +33,7 @@ easydb({
     //Store data
     db.save().then(()=>{
         console.log("Data Stored!");
-    }).catch((err)=>{
-        console.log('Error on storing data: '+err);
     });
 
-}).catch((err)=>{
-    console.log('Error on loading database: '+err);
 })
 ```
