@@ -29,6 +29,6 @@
     "url": "https://github.com/samuelnovaes/easydb/issues"
   },
   "homepage": "https://github.com/samuelnovaes/easydb#readme",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "author": "Samuel Novaes Sena"
 }
