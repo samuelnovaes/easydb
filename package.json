@@ -1,34 +1,37 @@
 {
-  "description": "Easy asynchronous JSON databse",
-  "keywords": [
-    "json",
-    "database",
-    "banco de dados",
-    "dados",
-    "easy",
-    "db",
-    "bd",
-    "sgbd",
-    "dados",
-    "persistente",
-    "persistence",
-    "armazenamento",
-    "store",
-    "easydb",
-    "asynchronous",
-    "async"
-  ],
-  "main": "index.js",
-  "name": "easydb",
-  "version": "3.0.4",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/samuelnovaes/easydb.git"
-  },
-  "bugs": {
-    "url": "https://github.com/samuelnovaes/easydb/issues"
-  },
-  "homepage": "https://github.com/samuelnovaes/easydb#readme",
-  "license": "BSD-3-Clause",
-  "author": "Samuel Novaes Sena"
+	"description": "Easy asynchronous JSON databse",
+	"scripts": {
+		"test": "node test/index.js"
+	},
+	"keywords": [
+		"json",
+		"database",
+		"banco de dados",
+		"dados",
+		"easy",
+		"db",
+		"bd",
+		"sgbd",
+		"dados",
+		"persistente",
+		"persistence",
+		"armazenamento",
+		"store",
+		"easydb",
+		"asynchronous",
+		"async"
+	],
+	"main": "index.js",
+	"name": "easydb",
+	"version": "3.0.5",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/samuelnovaes/easydb.git"
+	},
+	"bugs": {
+		"url": "https://github.com/samuelnovaes/easydb/issues"
+	},
+	"homepage": "https://github.com/samuelnovaes/easydb#readme",
+	"license": "BSD-3-Clause",
+	"author": "Samuel Novaes Sena"
 }
