@@ -13,21 +13,22 @@ $ npm install easydb
 # Example usage
 
 ```javascript
-const easydb = require("easydb");
+var EasyDB = require('easydb')
+var db = new EasyDB('file.json')
 
-easydb('file.json').then(db => {
+db.ready = function(){
 
-	//Print file.json data
+	//Print file.json value
 	console.log(db.value)
 
-	//Manipulate db.value object as you want
+	//Manipulate db.v object as you want
 	db.value.a = 1
 	db.value.b = 2
 
-	//Store db.value to file.json
-	db.save(db.value).then(() => {
-		console.log("Data Stored!");
+	//Write db.value to file.json
+	db.write(function(){
+		console.log("Data stored!");
 	})
-
-})
+	
+}
 ```
